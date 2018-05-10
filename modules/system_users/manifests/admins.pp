@@ -3,7 +3,7 @@ group {'staff':
 ensure=>present,
 }
 
-if $facts['kernal'] == 'windows' {
+if $facts['kernel'] == 'windows' {
 user {'admin':
 groups=> 'staff',
 }
