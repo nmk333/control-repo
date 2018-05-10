@@ -5,7 +5,7 @@ ensure=>present,
 
 if $facts['kernel'] == 'windows' {
 user {'admin':
-groups=> 'staff',
+groups=> ['staff','Users'],
 }
 }
 else
