@@ -1,11 +1,12 @@
 class system_users::admins {
-group {staff':
-ensure=>present
+group {'staff':
+ensure=>present,
 }
 
 if $facts['kernal'] == 'windows' {
 user {'admin':
-group=> 'staff'
+groups=> 'staff',
+}
 }
 else
 {
@@ -14,9 +15,9 @@ ensure => latest,
 }
 
 user {'admin':
-groups => 'start',
+groups => 'staff',
 shell => '/bin/csh',
-require => Package ['csh'],
+require => Package['csh'],
 }
 }
 }
